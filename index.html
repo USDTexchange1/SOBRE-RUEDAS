@@ -293,3 +293,1419 @@ target="_blank">
 VER CATÁLOGO
 
 </a></section>
+  <section class="panel"><h2 class="panel-titulo">
+PANEL PRINCIPAL
+</h2><div class="panel-grid"><div class="panel-card"><h3>MI SALDO</h3><p id="saldoDisponible">
+Disponible: $0.00
+</p><button onclick="abrirSaldo()">
+AGREGAR SALDO
+</button></div><div class="panel-card"><h3>MIS PEDIDOS</h3><p id="totalPedidos">
+0 PEDIDOS REGISTRADOS
+</p><button onclick="abrirPedidos()">
+VER PEDIDOS
+</button></div><div class="panel-card"><h3>MI CUENTA</h3><p>
+Administra tu información personal
+</p><button onclick="abrirPerfil()">
+VER PERFIL
+</button></div></div></section><section class="form-section"><h2>
+REGISTRO DE USUARIO
+</h2><input
+type="text"
+id="nombre"
+placeholder="Nombre Completo">
+
+<input
+type="email"
+id="correo"
+placeholder="Correo Electrónico">
+
+<input
+type="text"
+id="telefono"
+placeholder="Teléfono">
+
+<input
+type="text"
+id="pais"
+placeholder="País">
+
+<input
+type="text"
+id="direccion"
+placeholder="Dirección de Entrega">
+
+<input
+type="password"
+id="password"
+placeholder="Contraseña">
+
+<button onclick="registrarUsuario()">
+CREAR CUENTA
+</button></section><section class="form-section"><h2>
+INICIAR SESIÓN
+</h2><input
+type="email"
+id="loginCorreo"
+placeholder="Correo Electrónico">
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Contraseña">
+
+<button onclick="iniciarSesion()">
+ENTRAR
+</button></section><section id="usuarioActivo"
+class="form-section"
+style="display:none;"><h2>
+CUENTA ACTIVA
+</h2><div class="panel-card"><p id="nombreUsuario">
+Usuario
+</p><p id="correoUsuario">
+Correo
+</p><p id="telefonoUsuario">
+Teléfono
+</p><p id="paisUsuario">
+País
+</p><p id="direccionUsuario">
+Dirección
+</p><button onclick="cerrarSesion()">
+CERRAR SESIÓN
+</button></div></section>
+  <section class="panel"><h2 class="panel-titulo">
+MI SALDO
+</h2><div class="panel-grid"><div class="panel-card"><h3>SALDO DISPONIBLE</h3><p id="saldoPrincipal">
+$0.00
+</p></div><div class="panel-card"><h3>SALDO CONGELADO</h3><p id="saldoCongelado">
+$0.00
+</p></div><div class="panel-card"><h3>SALDO TOTAL</h3><p id="saldoTotal">
+$0.00
+</p></div></div></section><section class="form-section"><h2>
+AGREGAR SALDO
+</h2><div class="panel-card"><h3>
+DEPÓSITO MEDIANTE PAYPAL
+</h3><p>
+Para acreditar saldo en su cuenta realice una transferencia al siguiente correo:
+</p><p style="font-size:22px;font-weight:700;color:#d4af37;">
+daryallen99@gmail.com
+</p><p>
+Una vez realizado el pago conserve el comprobante y contacte con nuestro equipo de atención para procesar la acreditación correspondiente.
+</p><button onclick="mostrarPaypal()">
+VER INFORMACIÓN DE PAGO
+</button></div></section><section class="panel"><h2 class="panel-titulo">
+HISTORIAL DE MOVIMIENTOS
+</h2><div id="historialMovimientos"><div class="panel-card"><p>
+No existen movimientos registrados.
+</p></div></div></section><section class="panel"><h2 class="panel-titulo">
+CENTRO DE SOPORTE
+</h2><div class="panel-grid"><div class="panel-card"><h3>
+ATENCIÓN AL CLIENTE
+</h3><p>
+Nuestro equipo de soporte está disponible para brindar asistencia relacionada con pedidos, pagos y consultas generales.
+</p></div><div class="panel-card"><h3>
+WHATSAPP OFICIAL
+</h3><p style="font-size:24px;font-weight:700;color:#d4af37;">
++505 8550 0324
+</p></div><div class="panel-card"><h3>
+HORARIO DE ATENCIÓN
+</h3><p>
+Lunes a Domingo
+</p><p>
+08:00 AM - 08:00 PM
+</p></div></div></section><div id="paypalModal"
+style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;justify-content:center;align-items:center;"><div style="background:#111;padding:30px;border-radius:20px;max-width:600px;width:90%;border:2px solid #d4af37;"><h2 style="margin-bottom:20px;color:#d4af37;">
+AGREGAR SALDO
+</h2><p style="margin-bottom:15px;">
+Método de pago disponible:
+</p><p style="font-size:24px;font-weight:700;margin-bottom:20px;">
+PayPal
+</p><p style="margin-bottom:20px;">
+Correo receptor:
+</p><p style="font-size:22px;font-weight:700;color:#d4af37;margin-bottom:25px;">
+daryallen99@gmail.com
+</p><p style="margin-bottom:25px;">
+Después de realizar el pago contacte al soporte oficial para la validación correspondiente.
+</p><button onclick="cerrarPaypal()"
+style="width:100%;padding:15px;border:none;background:#d4af37;color:black;font-weight:700;border-radius:10px;">
+CERRAR
+</button>
+
+</div></div>
+  <section class="panel"><h2 class="panel-titulo">
+MIS PEDIDOS
+</h2><div class="panel-grid"><div class="panel-card"><h3>
+REALIZAR PEDIDO
+</h3><p>
+Solicita cualquiera de los productos disponibles en nuestro catálogo.
+</p><button onclick="nuevoPedido()">
+NUEVO PEDIDO
+</button></div><div class="panel-card"><h3>
+PEDIDOS ACTIVOS
+</h3><p id="cantidadPedidosActivos">
+0
+</p></div><div class="panel-card"><h3>
+PEDIDOS COMPLETADOS
+</h3><p id="cantidadPedidosCompletados">
+0
+</p></div></div></section><section class="panel"><h2 class="panel-titulo">
+SEGUIMIENTO DE PEDIDOS
+</h2><div id="listaPedidos"><div class="panel-card"><h3>
+SIN PEDIDOS REGISTRADOS
+</h3><p>
+Los pedidos realizados aparecerán aquí.
+</p></div></div></section><section class="panel"><h2 class="panel-titulo">
+ESTADOS DE PEDIDO
+</h2><div class="panel-grid"><div class="panel-card">
+<h3>PENDIENTE</h3>
+<p>Solicitud recibida correctamente.</p>
+</div><div class="panel-card">
+<h3>CONFIRMADO</h3>
+<p>Pedido validado y aprobado.</p>
+</div><div class="panel-card">
+<h3>EN PROCESO</h3>
+<p>Preparando la gestión correspondiente.</p>
+</div><div class="panel-card">
+<h3>EN TRÁNSITO</h3>
+<p>Producto en camino.</p>
+</div><div class="panel-card">
+<h3>ENTREGADO</h3>
+<p>Pedido completado exitosamente.</p>
+</div><div class="panel-card">
+<h3>CANCELADO</h3>
+<p>Pedido cancelado por el usuario.</p>
+</div></div></section><section class="panel"><h2 class="panel-titulo">
+POLÍTICA DE CANCELACIÓN
+</h2><div class="panel-card"><h3>
+CANCELACIÓN DE PEDIDOS
+</h3><p>
+Los pedidos podrán cancelarse durante las primeras 24 horas posteriores a la solicitud.
+</p><p>
+Una vez transcurrido ese período el pedido continuará con su proceso correspondiente.
+</p><p id="contadorCancelacion">
+Tiempo restante: 24h 00m
+</p></div></section><section class="panel"><h2 class="panel-titulo">
+HISTORIAL DE COMPRAS
+</h2><div id="historialCompras"><div class="panel-card"><p>
+No existen compras registradas.
+</p></div></div></section>
+  <style>
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:75px;
+background:#0b0b0b;
+border-top:2px solid #d4af37;
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:9999;
+}
+
+.nav-btn{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:12px;
+font-weight:600;
+transition:.3s;
+cursor:pointer;
+}
+
+.nav-btn:hover{
+color:#d4af37;
+transform:translateY(-3px);
+}
+
+.nav-icon{
+font-size:24px;
+margin-bottom:4px;
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+z-index:99999;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.modal-content{
+width:100%;
+max-width:700px;
+background:#111111;
+border:2px solid #d4af37;
+border-radius:20px;
+padding:25px;
+}
+
+.modal-title{
+font-size:28px;
+font-weight:700;
+margin-bottom:20px;
+color:#d4af37;
+text-align:center;
+}
+
+.modal-text{
+line-height:1.8;
+color:#d7d7d7;
+margin-bottom:15px;
+}
+
+.close-btn{
+width:100%;
+padding:15px;
+border:none;
+background:#d4af37;
+color:black;
+font-weight:700;
+font-size:16px;
+border-radius:10px;
+margin-top:20px;
+}
+
+.estado-pendiente{
+background:#ff9800;
+color:white;
+padding:8px 15px;
+border-radius:30px;
+display:inline-block;
+font-size:13px;
+font-weight:700;
+}
+
+.estado-confirmado{
+background:#2196f3;
+color:white;
+padding:8px 15px;
+border-radius:30px;
+display:inline-block;
+font-size:13px;
+font-weight:700;
+}
+
+.estado-proceso{
+background:#9c27b0;
+color:white;
+padding:8px 15px;
+border-radius:30px;
+display:inline-block;
+font-size:13px;
+font-weight:700;
+}
+
+.estado-transito{
+background:#009688;
+color:white;
+padding:8px 15px;
+border-radius:30px;
+display:inline-block;
+font-size:13px;
+font-weight:700;
+}
+
+.estado-entregado{
+background:#4caf50;
+color:white;
+padding:8px 15px;
+border-radius:30px;
+display:inline-block;
+font-size:13px;
+font-weight:700;
+}
+
+.estado-cancelado{
+background:#f44336;
+color:white;
+padding:8px 15px;
+border-radius:30px;
+display:inline-block;
+font-size:13px;
+font-weight:700;
+}
+
+.soporte-card{
+background:#111111;
+border:1px solid #2a2a2a;
+border-radius:20px;
+padding:25px;
+margin-top:20px;
+text-align:center;
+}
+
+.soporte-card h3{
+color:#d4af37;
+margin-bottom:15px;
+font-size:24px;
+}
+
+.soporte-card p{
+line-height:1.8;
+color:#d7d7d7;
+}
+
+.whatsapp-numero{
+font-size:30px;
+font-weight:800;
+color:#d4af37;
+margin-top:15px;
+}
+
+.separador{
+width:100%;
+height:2px;
+background:#222222;
+margin:30px 0;
+}
+
+footer{
+padding:100px 20px 120px;
+text-align:center;
+}
+
+footer h3{
+font-size:30px;
+color:#d4af37;
+margin-bottom:15px;
+}
+
+footer p{
+color:#bfbfbf;
+line-height:1.8;
+}
+
+</style><div class="bottom-nav"><div class="nav-btn" onclick="mostrarInicio()">
+<div class="nav-icon">🏠</div>
+<div>Inicio</div>
+</div><div class="nav-btn" onclick="mostrarCatalogo()">
+<div class="nav-icon">📦</div>
+<div>Catálogo</div>
+</div><div class="nav-btn" onclick="mostrarPedidos()">
+<div class="nav-icon">🛒</div>
+<div>Pedidos</div>
+</div><div class="nav-btn" onclick="mostrarSaldo()">
+<div class="nav-icon">💰</div>
+<div>Saldo</div>
+</div><div class="nav-btn" onclick="mostrarSoporte()">
+<div class="nav-icon">📞</div>
+<div>Soporte</div>
+</div><div class="nav-btn" onclick="mostrarCuenta()">
+<div class="nav-icon">👤</div>
+<div>Mi Cuenta</div>
+</div></div><footer><h3>
+SOBRE RUEDAS
+</h3><p>
+Importamos tu libertad.
+</p><p>
+Catálogo oficial de triciclos, motos y soluciones de movilidad.
+</p><p>
+Soporte WhatsApp: +505 8550 0324
+</p></footer>
+  <style>
+
+@keyframes aparecer{
+
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes brilloDorado{
+
+0%{
+box-shadow:0 0 5px rgba(212,175,55,.2);
+}
+
+50%{
+box-shadow:0 0 25px rgba(212,175,55,.7);
+}
+
+100%{
+box-shadow:0 0 5px rgba(212,175,55,.2);
+}
+
+}
+
+@keyframes flotar{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+.hero{
+animation:aparecer 1s ease;
+}
+
+.card{
+animation:aparecer .8s ease;
+}
+
+.panel-card{
+animation:aparecer .8s ease;
+}
+
+.saldo-box{
+animation:brilloDorado 3s infinite;
+}
+
+.catalogo-btn{
+animation:flotar 3s infinite;
+}
+
+.catalogo-btn:hover{
+animation:none;
+}
+
+input:focus{
+outline:none;
+border:1px solid #d4af37;
+box-shadow:0 0 15px rgba(212,175,55,.5);
+}
+
+button:hover{
+opacity:.92;
+}
+
+.panel-card:hover{
+border-color:#d4af37;
+transition:.4s;
+}
+
+.card img{
+transition:.5s;
+}
+
+.card:hover img{
+transform:scale(1.05);
+}
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#111111;
+}
+
+::-webkit-scrollbar-thumb{
+background:#d4af37;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#f1c84a;
+}
+
+@media(max-width:1200px){
+
+.hero h1{
+font-size:42px;
+}
+
+.card{
+width:300px;
+}
+
+}
+
+@media(max-width:992px){
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:16px;
+letter-spacing:2px;
+}
+
+.card{
+width:100%;
+max-width:500px;
+}
+
+.panel-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.logo{
+font-size:24px;
+}
+
+.saldo-box{
+min-width:120px;
+padding:8px;
+}
+
+.saldo-valor{
+font-size:18px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.catalogo h2{
+font-size:30px;
+}
+
+.panel-titulo{
+font-size:28px;
+}
+
+.card-title{
+font-size:22px;
+}
+
+.bottom-nav{
+height:80px;
+}
+
+.nav-icon{
+font-size:20px;
+}
+
+.nav-btn{
+font-size:10px;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero{
+padding:25px 15px;
+}
+
+.hero h1{
+font-size:28px;
+}
+
+.hero p{
+font-size:13px;
+}
+
+.card img{
+height:280px;
+}
+
+.card-title{
+font-size:20px;
+}
+
+.card-text{
+font-size:14px;
+}
+
+.catalogo-btn{
+width:100%;
+}
+
+.form-section h2{
+font-size:26px;
+}
+
+.modal-content{
+padding:20px;
+}
+
+.whatsapp-numero{
+font-size:24px;
+}
+
+}
+
+.seccion-oculta{
+display:none;
+}
+
+.seccion-visible{
+display:block;
+}
+
+.badge-premium{
+display:inline-block;
+background:#d4af37;
+color:black;
+padding:8px 15px;
+border-radius:30px;
+font-weight:700;
+font-size:12px;
+margin-bottom:15px;
+}
+
+.aviso-importacion{
+background:#111111;
+border-left:5px solid #d4af37;
+padding:20px;
+margin-top:30px;
+border-radius:10px;
+}
+
+.aviso-importacion h3{
+color:#d4af37;
+margin-bottom:10px;
+}
+
+.aviso-importacion p{
+line-height:1.8;
+color:#d7d7d7;
+}
+
+</style><div class="aviso-importacion"><h3>
+SERVICIO DE IMPORTACIÓN
+</h3><p>
+SOBRE RUEDAS ofrece acceso a un catálogo especializado de triciclos, motos y soluciones de movilidad con atención personalizada durante todo el proceso.
+</p></div>
+  <script>
+
+let usuarioActual = null;
+
+function registrarUsuario(){
+
+const usuario = {
+
+nombre:document.getElementById("nombre").value,
+
+correo:document.getElementById("correo").value,
+
+telefono:document.getElementById("telefono").value,
+
+pais:document.getElementById("pais").value,
+
+direccion:document.getElementById("direccion").value,
+
+password:document.getElementById("password").value,
+
+saldo:0,
+
+saldoCongelado:0,
+
+pedidos:[]
+
+};
+
+localStorage.setItem(
+"sr_usuario_"+usuario.correo,
+JSON.stringify(usuario)
+);
+
+alert("Cuenta creada correctamente");
+
+}
+
+function iniciarSesion(){
+
+const correo =
+document.getElementById("loginCorreo").value;
+
+const password =
+document.getElementById("loginPassword").value;
+
+const datos =
+localStorage.getItem("sr_usuario_"+correo);
+
+if(!datos){
+
+alert("Usuario no encontrado");
+
+return;
+
+}
+
+const usuario = JSON.parse(datos);
+
+if(usuario.password !== password){
+
+alert("Contraseña incorrecta");
+
+return;
+
+}
+
+usuarioActual = usuario;
+
+localStorage.setItem(
+"sr_usuario_activo",
+correo
+);
+
+mostrarPerfilUsuario();
+
+actualizarSaldo();
+
+alert("Sesión iniciada");
+
+}
+
+function mostrarPerfilUsuario(){
+
+if(!usuarioActual)return;
+
+document.getElementById("usuarioActivo").style.display="block";
+
+document.getElementById("nombreUsuario").innerHTML =
+usuarioActual.nombre;
+
+document.getElementById("correoUsuario").innerHTML =
+usuarioActual.correo;
+
+document.getElementById("telefonoUsuario").innerHTML =
+usuarioActual.telefono;
+
+document.getElementById("paisUsuario").innerHTML =
+usuarioActual.pais;
+
+document.getElementById("direccionUsuario").innerHTML =
+usuarioActual.direccion;
+
+}
+
+function cerrarSesion(){
+
+localStorage.removeItem(
+"sr_usuario_activo"
+);
+
+usuarioActual = null;
+
+location.reload();
+
+}
+
+function cargarSesion(){
+
+const correo =
+localStorage.getItem("sr_usuario_activo");
+
+if(!correo)return;
+
+const datos =
+localStorage.getItem("sr_usuario_"+correo);
+
+if(!datos)return;
+
+usuarioActual = JSON.parse(datos);
+
+mostrarPerfilUsuario();
+
+actualizarSaldo();
+
+}
+
+function actualizarSaldo(){
+
+if(!usuarioActual)return;
+
+document.getElementById("saldo").innerHTML =
+"$"+Number(usuarioActual.saldo).toFixed(2);
+
+const saldoPrincipal =
+document.getElementById("saldoPrincipal");
+
+if(saldoPrincipal){
+
+saldoPrincipal.innerHTML =
+"$"+Number(usuarioActual.saldo).toFixed(2);
+
+}
+
+const saldoCongelado =
+document.getElementById("saldoCongelado");
+
+if(saldoCongelado){
+
+saldoCongelado.innerHTML =
+"$"+Number(usuarioActual.saldoCongelado).toFixed(2);
+
+}
+
+const saldoTotal =
+document.getElementById("saldoTotal");
+
+if(saldoTotal){
+
+saldoTotal.innerHTML =
+"$"+(
+Number(usuarioActual.saldo)
++
+Number(usuarioActual.saldoCongelado)
+).toFixed(2);
+
+}
+
+}
+
+window.onload = function(){
+
+cargarSesion();
+
+};
+
+  </script>
+  <script>
+
+function nuevoPedido(){
+
+if(!usuarioActual){
+
+alert("Debe iniciar sesión");
+
+return;
+
+}
+
+const producto =
+prompt("Nombre del producto solicitado");
+
+if(!producto)return;
+
+const precio =
+parseFloat(
+prompt("Importe del pedido")
+);
+
+if(isNaN(precio)){
+
+alert("Importe inválido");
+
+return;
+
+}
+
+const pedido = {
+
+id:Date.now(),
+
+producto:producto,
+
+precio:precio,
+
+estado:"Pendiente",
+
+fecha:Date.now(),
+
+cancelable:true
+
+};
+
+usuarioActual.pedidos.push(pedido);
+
+usuarioActual.saldoCongelado += precio;
+
+guardarUsuario();
+
+actualizarSaldo();
+
+renderPedidos();
+
+alert("Pedido registrado correctamente");
+
+}
+
+function renderPedidos(){
+
+const lista =
+document.getElementById("listaPedidos");
+
+if(!lista)return;
+
+if(
+!usuarioActual ||
+usuarioActual.pedidos.length===0
+){
+
+lista.innerHTML=`
+
+<div class="panel-card">
+
+<h3>
+SIN PEDIDOS REGISTRADOS
+</h3>
+
+<p>
+Los pedidos realizados aparecerán aquí.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+lista.innerHTML="";
+
+usuarioActual.pedidos.forEach((pedido)=>{
+
+let botonCancelar="";
+
+const horas =
+(Date.now()-pedido.fecha)
+/
+1000
+/
+60
+/
+60;
+
+if(
+horas < 24 &&
+pedido.estado==="Pendiente"
+){
+
+botonCancelar = `
+<button
+onclick="cancelarPedido(${pedido.id})"
+style="
+margin-top:15px;
+padding:12px 20px;
+background:#f44336;
+border:none;
+color:white;
+border-radius:10px;
+font-weight:700;
+">
+CANCELAR PEDIDO
+</button>
+`;
+
+}
+
+lista.innerHTML += `
+
+<div class="panel-card">
+
+<h3>${pedido.producto}</h3>
+
+<p>
+Importe:
+$${pedido.precio.toFixed(2)}
+</p>
+
+<p>
+Estado:
+<strong>${pedido.estado}</strong>
+</p>
+
+<p>
+Código:
+${pedido.id}
+</p>
+
+${botonCancelar}
+
+</div>
+
+`;
+
+});
+
+actualizarContadores();
+
+}
+
+function cancelarPedido(id){
+
+if(!usuarioActual)return;
+
+const pedido =
+usuarioActual.pedidos.find(
+p=>p.id===id
+);
+
+if(!pedido)return;
+
+if(pedido.estado!=="Pendiente"){
+
+alert("No puede cancelarse");
+
+return;
+
+}
+
+pedido.estado="Cancelado";
+
+usuarioActual.saldoCongelado -= pedido.precio;
+
+guardarUsuario();
+
+actualizarSaldo();
+
+renderPedidos();
+
+alert("Pedido cancelado");
+
+}
+
+function actualizarContadores(){
+
+if(!usuarioActual)return;
+
+const activos =
+usuarioActual.pedidos.filter(
+p=>
+p.estado!=="Cancelado" &&
+p.estado!=="Entregado"
+).length;
+
+const completados =
+usuarioActual.pedidos.filter(
+p=>p.estado==="Entregado"
+).length;
+
+const activosBox =
+document.getElementById(
+"cantidadPedidosActivos"
+);
+
+if(activosBox){
+
+activosBox.innerHTML = activos;
+
+}
+
+const completadosBox =
+document.getElementById(
+"cantidadPedidosCompletados"
+);
+
+if(completadosBox){
+
+completadosBox.innerHTML =
+completados;
+
+}
+
+const totalBox =
+document.getElementById(
+"totalPedidos"
+);
+
+if(totalBox){
+
+totalBox.innerHTML =
+usuarioActual.pedidos.length+
+" PEDIDOS REGISTRADOS";
+
+}
+
+}
+
+function guardarUsuario(){
+
+if(!usuarioActual)return;
+
+localStorage.setItem(
+"sr_usuario_"+usuarioActual.correo,
+JSON.stringify(usuarioActual)
+);
+
+}
+
+function actualizarHistorial(){
+
+const historial =
+document.getElementById(
+"historialCompras"
+);
+
+if(!historial)return;
+
+if(
+!usuarioActual ||
+usuarioActual.pedidos.length===0
+){
+
+return;
+
+}
+
+historial.innerHTML="";
+
+usuarioActual.pedidos.forEach((pedido)=>{
+
+historial.innerHTML += `
+
+<div class="panel-card">
+
+<h3>${pedido.producto}</h3>
+
+<p>
+Estado:
+${pedido.estado}
+</p>
+
+<p>
+Importe:
+$${pedido.precio.toFixed(2)}
+</p>
+
+</div>
+
+`;
+
+});
+
+}
+
+setInterval(()=>{
+
+if(!usuarioActual)return;
+
+renderPedidos();
+
+actualizarHistorial();
+
+},3000);
+
+  </script>
+  <script>
+
+let imagenActual = 0;
+
+const imagenesCarrusel = [
+
+"https://raw.githubusercontent.com/USDTexchange1/SOBRE-RUEDAS/main/d2356c56286a7d8f8fea233a61767256.jpg",
+
+"https://raw.githubusercontent.com/USDTexchange1/SOBRE-RUEDAS/main/ceb9396da62141da8dd4ec9c2a6d0ec8.jpg",
+
+"https://raw.githubusercontent.com/USDTexchange1/SOBRE-RUEDAS/main/6ec5a33da7735ed669ee0771a39e59e1.jpg",
+
+"https://raw.githubusercontent.com/USDTexchange1/SOBRE-RUEDAS/main/283de3107f9fb1a6ac9ba9d4e67069ce.jpg"
+
+];
+
+function iniciarCarrusel(){
+
+const imagenes =
+document.querySelectorAll(".card img");
+
+if(imagenes.length===0)return;
+
+setInterval(()=>{
+
+imagenes.forEach((img,index)=>{
+
+img.style.opacity="0.4";
+
+if(index===imagenActual){
+
+img.style.opacity="1";
+
+}
+
+});
+
+imagenActual++;
+
+if(imagenActual>=imagenes.length){
+
+imagenActual=0;
+
+}
+
+},3000);
+
+}
+
+function mostrarPaypal(){
+
+const modal =
+document.getElementById(
+"paypalModal"
+);
+
+if(modal){
+
+modal.style.display="flex";
+
+}
+
+}
+
+function cerrarPaypal(){
+
+const modal =
+document.getElementById(
+"paypalModal"
+);
+
+if(modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function mostrarInicio(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+function mostrarCatalogo(){
+
+window.open(
+
+"https://sobreruedasscom.wordpress.com/triciclos/",
+
+"_blank"
+
+);
+
+}
+
+function mostrarPedidos(){
+
+const seccion =
+document.getElementById(
+"listaPedidos"
+);
+
+if(seccion){
+
+seccion.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+}
+
+function mostrarSaldo(){
+
+const seccion =
+document.getElementById(
+"saldoPrincipal"
+);
+
+if(seccion){
+
+seccion.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+}
+
+function mostrarSoporte(){
+
+const soporte =
+document.querySelector(
+".whatsapp-numero"
+);
+
+if(soporte){
+
+soporte.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+}
+
+function mostrarCuenta(){
+
+const cuenta =
+document.getElementById(
+"usuarioActivo"
+);
+
+if(cuenta){
+
+cuenta.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+}
+
+function abrirSaldo(){
+
+mostrarSaldo();
+
+}
+
+function abrirPedidos(){
+
+mostrarPedidos();
+
+}
+
+function abrirPerfil(){
+
+mostrarCuenta();
+
+}
+
+window.addEventListener(
+
+"load",
+
+function(){
+
+iniciarCarrusel();
+
+renderPedidos();
+
+actualizarHistorial();
+
+actualizarSaldo();
+
+}
+
+);
+
+</script></body></html>
